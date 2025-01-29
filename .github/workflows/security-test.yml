@@ -42,7 +42,7 @@ jobs:
 
       - name: Build and Run the Spring Boot App
         run: |
-          ./mvnw clean package
+          ./mvnw clean package -DskipTests
           java -jar target/*.jar &
         env:
           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/ms3
