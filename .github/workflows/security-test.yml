@@ -55,6 +55,9 @@ jobs:
           echo "Waiting for the application to be ready..."
           timeout 60s bash -c 'until curl -s http://localhost:8080 > /dev/null; do sleep 5; done'
 
+      - name: Fix permissions for ZAP
+        run: chmod -R 777 /home/runner/work/MS3-test/MS3-test/.zap
+
       - name: Run OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.9.0
         with:
